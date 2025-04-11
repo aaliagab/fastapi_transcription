@@ -1,25 +1,41 @@
-# my-fastapi-rest-api
+# Guía para Desplegar el Proyecto de Transcripción de Audio con FastAPI
 
-This is a REST API built with FastAPI and Postgres. It follows a modular architecture with separate layers for controllers, models, DTOs, services, exceptions, persistence, and configuration. The API includes endpoints for one-to-one, one-to-many, and many-to-many relationships between users, items, and orders.
+Este proyecto proporciona una API para la transcripción de archivos de audio utilizando FastAPI, integrando modelos de transcripción como Whisper de OpenAI y la API de reconocimiento de voz de Google. A continuación, se detallan los pasos necesarios para desplegar y ejecutar este proyecto en su entorno local.
 
-## Installation
+## Requisitos Previos
 
-1. Clone the repository.
-2. Install the dependencies listed in `requirements.txt`.
-3. Create a Postgres database and update the connection details in `config.py`.
-4. Run the `app.py` file to start the API.
+- **Python 3.8 o superior**: Asegúrese de tener instalada una versión compatible de Python.&#8203;:contentReference[oaicite:0]{index=0}
+- **Pip**: :contentReference[oaicite:1]{index=1}&#8203;:contentReference[oaicite:2]{index=2}
+- **Entorno Virtual (opcional pero recomendado)**: :contentReference[oaicite:3]{index=3}&#8203;:contentReference[oaicite:4]{index=4}
 
-## Usage
+## Paso 1: Clonar el Repositorio
 
-The API includes the following endpoints:
+:contentReference[oaicite:5]{index=5}&#8203;:contentReference[oaicite:6]{index=6}
 
-- `/users`: CRUD operations for users.
-- `/items`: CRUD operations for items.
-- `/orders`: CRUD operations for orders.
-- `/user_items`: CRUD operations for user-item relationships.
+```bash
+git clone https://github.com/aaliagab/fastapi_transcription.git
+cd fastapi_transcription
+```
+## Paso 2: Crear el entorno virtual
+python3 -m venv env
 
-The API documentation can be accessed at `/docs` or `/redoc`.
+# Activar el entorno virtual
+# En Windows
+env\Scripts\activate
+# En Unix o MacOS
+source env/bin/activate
 
-## License
+## Paso 3: Instalar las Dependencias
+pip install -r requirements.txt
 
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+## Paso 4: Descarga de Modelos de Whisper en la Primera Ejecución
+Los modelos de transcripción de Whisper (como "small" y "medium") no se descargan durante la instalación, sino que se descargan automáticamente la primera vez que se realiza una solicitud a los endpoints correspondientes. Esto significa que la primera transcripción utilizando un modelo de Whisper puede demorar más, ya que el sistema descargará el modelo necesario en ese momento.
+
+## Paso 5: Ejecutar la App
+uvicorn app:app --reload
+
+## Paso 6: Acceder a la Documentación de la API
+FastAPI genera automáticamente documentación interactiva para su API. Puede acceder a ella visitando:​
+
+Swagger UI: http://127.0.0.1:8000/docs​
