@@ -19,10 +19,10 @@ cd fastapi_transcription
 ## Paso 2: Crear el entorno virtual
 python3 -m venv env
 
-# Activar el entorno virtual
-# En Windows
+### Activar el entorno virtual
+#### En Windows
 env\Scripts\activate
-# En Unix o MacOS
+#### En Unix o MacOS
 source env/bin/activate
 
 ## Paso 3: Instalar las Dependencias
