@@ -10,7 +10,6 @@ Este proyecto proporciona una API para la transcripción de archivos de audio ut
 
 ## Paso 1: Clonar el Repositorio
 
-:contentReference[oaicite:5]{index=5}&#8203;:contentReference[oaicite:6]{index=6}
 
 ```bash
 git clone https://github.com/aaliagab/fastapi_transcription.git
